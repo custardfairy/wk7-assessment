@@ -23,37 +23,39 @@ console.log(addToZero(arr));
 
 // Unique Characters
 
-const hasUniqueChars = str => {
-    const uniqueChars = new Set([]);
+const hasUniqueChars = (str) => {
+  const uniqueChars = new Set([]);
+  // for loop to go through each letter in the string
+  for (let i = 0; i < str.length; i++) {
+    // push unique characters to the set
+    uniqueChars.add(str[i]);
+  }
+  // if the set is === to str length, return true
+  if (uniqueChars.size === str.length) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
-    for (let i = 0; i < str.length; i++) {
-        uniqueChars.add(str[i]);
-    }
-
-    if (uniqueChars.size === str.length) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-console.log(hasUniqueChars('Monday'));
+console.log(hasUniqueChars("Monday"));
 
 // Space complexity is O(n)
 
 // Pangram Sentence
 
-const isPangram = str => {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
-    const strArr = str.split('');
-
-    for (let i = 0; i < alphabet.length; i++) {
-        if (strArr.indexOf(alphabet[i]) < 0) {
-            return false;
-        }
+const isPangram = (str) => {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const strArr = str.split("");
+  // for loop to go through each letter in the alphabet array
+  for (let i = 0; i < alphabet.length; i++) {
+    // if the alphabet array contains the current letter in the string array,return false
+    if (strArr.indexOf(alphabet[i]) < 0) {
+      return false;
     }
-    return true;
-}
+  }
+  return true;
+};
 
 console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
 
@@ -61,17 +63,18 @@ console.log(isPangram("The quick brown fox jumps over the lazy dog!"));
 
 // Longest Word
 
-const findLongestWord = arrOfStr => {
-    let result = '';
-
-    for (let i = 0; i < arrOfStr.length; i++) {
-        if (result.length < arrOfStr[i].length) {
-            result = arrOfStr[i];
-        }
+const findLongestWord = (arrOfStr) => {
+  let result = "";
+  // for loop to go through each string in the array
+  for (let i = 0; i < arrOfStr.length; i++) {
+    // compare the length of the current string to the length of the result string
+    if (result.length < arrOfStr[i].length) {
+      result = arrOfStr[i];
     }
+  }
 
-    return result.length;
-}
+  return result.length;
+};
 
 console.log(findLongestWord(["hi", "hello"]));
 
